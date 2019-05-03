@@ -1,6 +1,6 @@
 # Image Processing
 
-Plain Node JS script-tool for handling images.
+Node JS script-tool for handling images.
 
 Used it for resizing, cropping and compression of amounts around 100's of images at a batch.
 
