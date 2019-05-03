@@ -1,5 +1,4 @@
 /node_modules
 
-origImages/
-processedImages/
-
+origImages/*
+processedImages/*

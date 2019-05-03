@@ -11,6 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "index": "node index.js",
+    "flushProcessed": "node flushProcessed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "André J. Kelling",
