@@ -9,6 +9,7 @@ const processedPath = 'processedImages/';
 fs.readdir(processedPath, (err, files) => {
     if (!!files.length) {
         console.log(chalk.red('stopping!!',processedPath, `is not empty`));
+        console.log(chalk.blue('Files:'),files);
         return;
     }
 
@@ -42,10 +43,10 @@ const processFiles = () => {
         Jimp.read(filePath)
             .then(img => {
                 return img
-                    .resize(400, 400)
+                    //.resize(980, 551)
                     //.resize(1280, 1280)
-                    .quality(90) // set JPEG quality
-                   // .crop( 0, 420, 1280, 440 )
+                    .crop( 0, 180, 1280, 440 )
+                    .quality(75) // set JPEG quality
                     .write(finishPath);
             })
             .then(() => {
