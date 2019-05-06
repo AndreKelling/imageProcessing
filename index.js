@@ -6,6 +6,9 @@ const Jimp = require('jimp');
 const originalPath = 'origImages/';
 const processedPath = 'processedImages/';
 
+const suffixName = false; // there shouldn't be any dot's in the filename!
+// const suffixName = '_360';
+
 fs.readdir(processedPath, (err, files) => {
     if (!!files.length) {
         console.log(chalk.red('stopping!!',processedPath, `is not empty`));
@@ -28,8 +31,17 @@ const processFiles = () => {
         const file = files[i];
 
         const filePath = `${originalPath}${file}`;
-        const finishPath = `${processedPath}${file}`;
         const fileType = mime.getType(filePath);
+        let filename = file;
+
+        if (suffixName) {
+            let fileArr = file.split('.');
+            fileArr[1] = `.${fileArr[1]}`;
+            fileArr.splice(1, 0, suffixName);
+            filename = fileArr.join('');
+        }
+
+        const finishPath = `${processedPath}${filename}`;
 
         if (files.length < consoleFileLimit) {
             console.log('start processing',chalk.blue(filePath));
@@ -44,8 +56,8 @@ const processFiles = () => {
             .then(img => {
                 return img
                     //.resize(980, 551)
-                    //.resize(1280, 1280)
-                    .crop( 0, 180, 1280, 440 )
+                    .resize(360, 240)
+                    // .crop( 100, 0, 1080, 720 )
                     .quality(75) // set JPEG quality
                     .write(finishPath);
             })
