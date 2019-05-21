@@ -6,8 +6,7 @@ const Jimp = require('jimp');
 const originalPath = 'origImages/';
 const processedPath = 'processedImages/';
 
-const suffixName = false; // there shouldn't be any dot's in the filename!
-// const suffixName = '_360';
+//const suffixName = '1080'; // there shouldn't be any dot's in the filename!
 
 fs.readdir(processedPath, (err, files) => {
     if (!!files.length) {
@@ -34,7 +33,7 @@ const processFiles = () => {
         const fileType = mime.getType(filePath);
         let filename = file;
 
-        if (suffixName) {
+        if (typeof suffixName !== "undefined") {
             let fileArr = file.split('.');
             fileArr[1] = `.${fileArr[1]}`;
             fileArr.splice(1, 0, suffixName);

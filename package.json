@@ -1,7 +1,7 @@
 {
   "name": "imageprocessing",
   "version": "1.0.0",
-  "description": "cropping images to correct aspect ration for TK old coach",
+  "description": "cropping images to correct aspect ration or just resize or quality",
   "main": "index.js",
   "dependencies": {
     "chalk": "^2.4.2",
@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "index": "node index.js",
+    "processImages": "node index.js",
     "flushProcessed": "node flushProcessed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
